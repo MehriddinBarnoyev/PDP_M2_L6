@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const QoshishStyledWrapper = styled.section`
+    overflow: auto;
     .wrapper{
         div{
             .row{

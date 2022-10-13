@@ -43,7 +43,8 @@ const DashboardStyledWrapper = styled.section`
             z-index: 1;
         }
         main{
-
+            height: 89vh;
+            overflow: auto !important;
         }
     }
 `;
