@@ -74,7 +74,7 @@ const Dashboard = () => {
                 <span className='d-flex align-items-center'>
                     <FaUserTie className='text-secondary me-1'/>
                     <p className='m-0 me-4 fw-bold text-secondary'>Davron</p>
-                    <Link to={"/"} className="btn btn-primary">Home</Link>
+                    <Link to={"/"} className="btn btn-primary">Log out</Link>
                 </span>
             </header>
             <main className='p-3'>

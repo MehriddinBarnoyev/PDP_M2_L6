@@ -5,9 +5,7 @@ import Dashboard from './Components/Dashboard';
 import Foydalanuchilar from './Components/Foydalanuvchilar';
 import Qoshish from './Components/Qoshish';
 import Kategoriya from './Components/Qoshish/Katigoriya';
-import KatRoyxat from './Components/Qoshish/KatRoyxat';
 import Taom from './Components/Qoshish/Taom';
-import TaomRoyxat from './Components/Qoshish/TaomRoyxat';
 import YitAriza from './Components/YetArizalar';
 
 function App() {
