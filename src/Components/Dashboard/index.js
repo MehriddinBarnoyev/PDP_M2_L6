@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import React, { useContext, useState } from 'react'
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import DashboardStyledWrapper from './DashboardStyledWrapper';
 import { FaBars, FaUserTie } from 'react-icons/fa';
 import image15 from './Photo/image15.png';
@@ -9,60 +9,68 @@ import Vector1 from './Photo/Vector1.png';
 import Vector2 from './Photo/Vector2.png';
 import Vector3 from './Photo/Vector3.png';
 import Vectorgroup from './Photo/Vectorgroup.png';
+import { LoginContext } from '../../App';
 
 const Dashboard = () => {
+    const navList = [
+        { 
+            to: "ariza",
+            imgSrc: Vector,
+            title: "Arizalar",
+            text: "Yetib kelgan arizalarni kuzatishingiz mumkin", 
+        
+        },
+        { 
+            to: "yitariza",
+            imgSrc: Vector1,
+            title: "Yetkazilgan",
+            text: "Yetkazilgan taomlar ro’yxati bilan tanishing", 
+        
+        },
+        { 
+            to: "statistika",
+            imgSrc: Vector2,
+            title: "Statistika",
+            text: "Diagrammalar bilan ishlangan statistika", 
+        
+        },
+        { 
+            to: "qoshish",
+            imgSrc: Vector3,
+            title: "Qo'shish",
+            text: "Yangi taom qo’shish", 
+        
+        },
+        { 
+            to: "foydalanuvchilar",
+            imgSrc: Vectorgroup,
+            title: "Foydalanuvchilar",
+            text: "Rollarni biriktirishingiz mumkin", 
+        
+        }
+    ];
     const [display, setDisplay] = useState(true)
+    const {isLogin, setLogin} = useContext(LoginContext);
+    
   return (
     <DashboardStyledWrapper className='d-flex'>
         <aside className={`shadow p-3 border ${display === true ? "d-block" : "d-none"}`}>
             <img src={image15} className="w-100" alt="" />
 
             <ListGroup>
-                <ListGroup.Item action>
-                    <Link to={"ariza"} className="link d-flex align-items-center">
-                        <img src={Vector} alt="" />
-                        <span>
-                            <h6 className='text-secondary'>Arizalar</h6>
-                            <p className='text-secondary'>Yetib kelgan arizalarni kuzatishingiz mumkin</p>
-                        </span>
-                    </Link>
-                </ListGroup.Item>
-                <ListGroup.Item action>
-                    <Link to={"yitariza"} className='link d-flex align-items-center'>
-                        <img src={Vector1} alt="" />
-                        <span>
-                            <h6 className='text-secondary'>Yetkazilgan</h6>
-                            <p className='text-secondary'>Yetkazilgan taomlar ro’yxati bilan tanishing</p>
-                        </span>
-                    </Link>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <Link  className='link d-flex align-items-center'>
-                        <img src={Vector2} alt="" />
-                        <span>
-                            <h6 className='text-secondary'>Statistika</h6>
-                            <p className='text-secondary'>Diagrammalar bilan ishlangan statistika</p>
-                        </span>
-                    </Link>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <Link to={"qoshish"} className='link d-flex align-items-center'>
-                    <img src={Vector3} alt="" />
-                    <span>
-                        <h6 className='text-secondary'>Qo’shish</h6>
-                        <p className='text-secondary'>Yangi taom qo’shish </p>
-                    </span>
-                    </Link>
-                </ListGroup.Item>
-                <ListGroup.Item className='d-flex align-items-center'>
-                    <Link to={"foydalanuvchilar"} className='d-flex align-items-center link'>
-                        <img src={Vectorgroup} className="imgGroup" alt="" />
-                        <span>
-                            <h6 className='text-secondary'>Foydalanuvchilar</h6>
-                            <p className='text-warning'>Rollarni biriktirishingiz mumkin</p>
-                        </span>
-                    </Link>
-                </ListGroup.Item>
+                {navList.map((item, index) => (
+                    <ListGroup.Item key={index}>
+                        <NavLink to={item.to} 
+                            className={`d-flex align-items-center 
+                                ${({isActive}) => isActive ? "active" : ""}`}>
+                            <img src={item.imgSrc} alt="" />
+                            <span>
+                                <h6 className='text-secondary'>{item.title}</h6>
+                                <p className='text-secondary'>{item.text}</p>
+                            </span>
+                        </NavLink>
+                    </ListGroup.Item>
+                ))}
             </ListGroup>
         
         </aside>
@@ -74,7 +82,7 @@ const Dashboard = () => {
                 <span className='d-flex align-items-center'>
                     <FaUserTie className='text-secondary me-1'/>
                     <p className='m-0 me-4 fw-bold text-secondary'>Davron</p>
-                    <Link to={"/"} className="btn btn-primary">Log out</Link>
+                    <Link to={"/"} onClick={() => setLogin(false)} className="btn btn-primary">Log out</Link>
                 </span>
             </header>
             <main className='p-3'>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import QoshishStyledWrapper from './QoshishStyledWrapper';
 
 const Qoshish = () => {
@@ -10,8 +10,14 @@ const Qoshish = () => {
             <h2>Qo'shish</h2>
             <p>Yangi kategoriya / taom qo'shish</p>
             <div className="d-flex align-items-center">
-              <Link to={"kategoriya"} className="fw-bold me-4 text-dark btn btn-outline-warning" style={{width: 200}}>Kategoriya qo'shish</Link>
-              <Link to={"taom"} className="fw-bold me-4 text-dark btn btn-outline-warning"  style={{width: 200}}>Taom qo'shish</Link>
+              <NavLink to={"kategoriya"} 
+                className={`fw-bold me-4 text-dark border text-center py-2 rounded text-decoration-none 
+                  ${({isActive}) => isActive ? "active" : ""}`} 
+                style={{width: 200}}>Kategoriya qo'shish</NavLink>
+              <NavLink to={"taom"} 
+                className={`fw-bold me-4 text-dark border text-center py-2 rounded text-decoration-none 
+                  ${({isActive}) => isActive ? "active" : ""}`}  
+                style={{width: 200}}>Taom qo'shish</NavLink>
             </div>
             <Outlet />  
         </div>

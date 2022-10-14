@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const DashboardStyledWrapper = styled.section`
     aside{
-        width: 300px;
+        width: 320px;
         height: 100vh;
         z-index: 1;
         background-color: #FFFCED;
@@ -15,7 +15,8 @@ const DashboardStyledWrapper = styled.section`
                 background-color: #FFFCED;
                 padding-left: 5px;
                 padding-right: 5px;
-                .link{
+                a{
+                    padding: 5px 10px;
                     text-decoration: none;
                     img{
                     margin-right: 10px;
@@ -33,7 +34,13 @@ const DashboardStyledWrapper = styled.section`
                             margin: 0px;
                         }
                     }
+                    &.active{
+                        background-color: #FFE755;
+                        border-radius: 5px;
+                        padding: 5px 10px;
+                    }   
                 }
+                
             }
         }
     }
