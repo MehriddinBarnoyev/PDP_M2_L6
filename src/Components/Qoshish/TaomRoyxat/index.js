@@ -1,14 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import TaomRoyxatStyledWrapper from './TaomRoyaxatStyledWrapper';
 
-const TaomRoyxat = ({arr1, ...props}) => {
-    console.log(arr1);
+const TaomRoyxat = () => {
+    const tasks = useSelector((state) => state.tasks);
   return (
     <TaomRoyxatStyledWrapper className='mt-4'>
         <h2 className='text-center my-4'>Taomlar ro'yxati</h2>
-        <div className="row" {...props}>
+        <div className="row">
             {
-                arr1?.map((item, index) => (
+                tasks.map((item, index) => (
                     <div className="coll col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-4" key={index}>
                         <div className="box border rounded shadow">
                             <img src="..." className="bg-secondary rounded d-block w-100" style={{width: 250, height: 150}} alt="250x150" />

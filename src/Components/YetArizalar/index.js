@@ -1,12 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import YitArizaStyledWrapper from './YitArizaStyledWrapper';
-import getYetkazilgan from './YitArizaList';
 
 const YitAriza = () => {
     let sum = 0;
-    const yitArizalar = getYetkazilgan();
-     
-    yitArizalar.map((item, i) => ( sum += parseFloat(item.umumiyNarxi)))
+    const tasks3 = useSelector((state) => state.tasks3);     
+    tasks3.map((item, i) => ( sum += parseFloat(item.umumiyNarxi)))
     
   return (
     <YitArizaStyledWrapper>
@@ -28,7 +27,7 @@ const YitAriza = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {yitArizalar.map((item, index) => (
+                    {tasks3.map((item, index) => (
                         <tr key={index}>
                             <td>{index+1}</td>
                             <td>{item.name}</td>

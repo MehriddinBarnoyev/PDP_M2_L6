@@ -1,12 +1,11 @@
 import React from 'react'
-import getAriza from './ArizalarList';
+import { useSelector } from 'react-redux';
 import ArizalarStyledWrapper from './ArizalarStyledWrapper';
 
 const Arizalar = () => {
     let sum = 0;
-    const arizalar = getAriza();
-     
-    arizalar.map((item, i) => ( sum += parseFloat(item.umumiyNarxi)))
+    const tasks2 = useSelector((state) => state.tasks2); 
+    tasks2.map((item, i) => ( sum += parseFloat(item.umumiyNarxi)))
     
     return (
     <ArizalarStyledWrapper>
@@ -28,7 +27,7 @@ const Arizalar = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {arizalar.map((item, index) => (
+                    {tasks2.map((item, index) => (
                         <tr key={index}>
                             <td>{index+1}</td>
                             <td>{item.name}</td>

@@ -49,9 +49,9 @@ const Dashboard = () => {
         
         }
     ];
+     
     const [display, setDisplay] = useState(true)
     const {isLogin, setLogin} = useContext(LoginContext);
-    
   return (
     <DashboardStyledWrapper className='d-flex'>
         <aside className={`shadow p-3 border ${display === true ? "d-block" : "d-none"}`}>

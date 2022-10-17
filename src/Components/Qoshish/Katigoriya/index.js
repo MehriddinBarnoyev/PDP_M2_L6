@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
+import { addNewTask1 } from '../../../Redux/actions';
 import KatRoyxat from '../KatRoyxat';
-import getRoyxat from '../KatRoyxat/KatRoyxatList';
 import KategoriyaStyledWrapper from './KategoriyaStyledWrapper';
 
 const Kategoriya = () => {
-  const katRoyxat = getRoyxat();
+
   const [value, setValue] = useState("");
-  const [royxat, setRoyxat] = useState(katRoyxat);
   
   const addKategoriya = () => {
-    setRoyxat([...royxat, value]);
+    addNewTask1(value)
     setValue("");
   };
   
@@ -25,7 +24,7 @@ const Kategoriya = () => {
           className='w-100 mt-2 px-3 py-1 from-control mb-4' />
         </p>
         <button type='button' onClick={addKategoriya} className='btn btn-warning mb-4 px-4 fw-bold shadow'>Qo'shish</button>
-        <KatRoyxat className="" arr={royxat}/>
+        <KatRoyxat />
     </KategoriyaStyledWrapper>
   )
 }

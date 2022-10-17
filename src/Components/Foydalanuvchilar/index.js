@@ -1,11 +1,11 @@
 import React from 'react'
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import getFoydalanuvchi from './FoydalanuchilarList';
 import FoydalanuchilarStyled from './FoydalanuchilarStyled';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { useSelector } from 'react-redux';
 
 const Foydalanuchilar = () => {
     const [showRol, setShowRol] = useState(false);
@@ -15,8 +15,7 @@ const Foydalanuchilar = () => {
     const handleCloseEdit = () => setShowEdit(false);
     const handleShowEdit = () => setShowEdit(true);
     
-    const foydalanuvchi = getFoydalanuvchi();
-     
+    const tasks4 = useSelector((state) => state.tasks4); 
   return (
     <FoydalanuchilarStyled>
         <span className='mt-4 d-block'>
@@ -35,7 +34,7 @@ const Foydalanuchilar = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {foydalanuvchi.map((item, index) => (
+                    {tasks4.map((item, index) => (
                         <tr key={index}>
                             <td className="text-center">{index+1}</td>
                             <td>{item.name}</td>
@@ -104,7 +103,7 @@ const Foydalanuchilar = () => {
                     <tr className='text-center'>
                         <td className='fw-bold'>Jami</td>
                         <td colSpan={2}></td>
-                        <td className='fw-bold'>{foydalanuvchi.length + " "} so'm</td>
+                        <td className='fw-bold'>{tasks4.length + " "} so'm</td>
                         <td colSpan={2}></td>
                     </tr>
                 </tbody>
