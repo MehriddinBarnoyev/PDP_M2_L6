@@ -1,12 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import TrYetAriza from './TrYet';
 import YitArizaStyledWrapper from './YitArizaStyledWrapper';
 
 const YitAriza = () => {
     let sum = 0;
-    const tasks3 = useSelector((state) => state.tasks3);     
-    tasks3.map((item, i) => ( sum += parseFloat(item.umumiyNarxi)))
-    
+    const tasks3 = useSelector((state) => state.yitkazilgan.tasks3);     
+    tasks3.map((item) => ( sum += parseFloat(item.umumiyNarxi)));
+     
   return (
     <YitArizaStyledWrapper>
         <span className='mt-4 d-block'>
@@ -24,20 +25,13 @@ const YitAriza = () => {
                         <th>Umumiy narxi</th>
                         <th>Telefon raqami</th>
                         <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     {tasks3.map((item, index) => (
-                        <tr key={index}>
-                            <td>{index+1}</td>
-                            <td>{item.name}</td>
-                            <td>{item.taomName}</td>
-                            <td>{item.narxi}</td>
-                            <td>{item.soni}</td>
-                            <td>{item.umumiyNarxi}</td>
-                            <td>{item.tel}</td>
-                            <td>{item.status}</td>
-                        </tr>
+                        <TrYetAriza item={item} index={index} key={index} />
                     ))}
                 </tbody>
             </table>

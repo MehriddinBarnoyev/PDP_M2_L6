@@ -1,10 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import ArizalarStyledWrapper from './ArizalarStyledWrapper';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import TrAriza from './TrAriza';
 
 const Arizalar = () => {
     let sum = 0;
-    const tasks2 = useSelector((state) => state.tasks2); 
+    const tasks2 = useSelector((state) => state.ariza.tasks2); 
     tasks2.map((item, i) => ( sum += parseFloat(item.umumiyNarxi)))
     
     return (
@@ -24,20 +26,13 @@ const Arizalar = () => {
                         <th>Umumiy narxi</th>
                         <th>Telefon raqami</th>
                         <th>Izoh</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     {tasks2.map((item, index) => (
-                        <tr key={index}>
-                            <td>{index+1}</td>
-                            <td>{item.name}</td>
-                            <td>{item.taomName}</td>
-                            <td>{item.narxi}</td>
-                            <td>{item.soni}</td>
-                            <td>{item.umumiyNarxi}</td>
-                            <td>{item.tel}</td>
-                            <td>{item.izox}</td>
-                        </tr>
+                        <TrAriza item={item} index={index} key={index} />
                     ))}
                 </tbody>
             </table>

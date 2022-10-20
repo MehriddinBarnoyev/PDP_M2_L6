@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { addNewTask1 } from '../../../Redux/actions';
+import { useSelector } from 'react-redux';
+import { addNewTask1 } from '../../../Redux/actions/katigoriyaAction';
 import KatRoyxat from '../KatRoyxat';
 import KategoriyaStyledWrapper from './KategoriyaStyledWrapper';
 
 const Kategoriya = () => {
-
+  const tasks1 = useSelector((state) => state.katigoriya.tasks1)
+  let n = tasks1.length;
+  console.log("n+++++"+n);
   const [value, setValue] = useState("");
   
   const addKategoriya = () => {
-    addNewTask1(value)
+    addNewTask1(value, n)
     setValue("");
   };
   

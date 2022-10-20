@@ -2,9 +2,14 @@ import React, { useState } from 'react'
 import TaomStyledWrapper from './TaomStyledWrapper';
 import TaomRoyxat from '../TaomRoyxat';
 import Form from 'react-bootstrap/Form';
-import { addNewTask } from '../../../Redux/actions';
+import { addNewTask } from '../../../Redux/actions/taomAction';
+import { useSelector } from 'react-redux';
 
 const Taom = () => {
+
+    const tasks = useSelector((state) => state.taom.tasks);
+    let n = tasks.length;
+
     const [value1, setValue1] = useState("");
     const [value2, setValue2] = useState("");
     const [value3, setValue3] = useState("");
@@ -12,7 +17,7 @@ const Taom = () => {
     
     const addTaom = () => {
         const arrValue = [value1, value2, value3, value4];
-        addNewTask(arrValue);
+        addNewTask(arrValue, n);
         setValue1(""),
         setValue2(""),
         setValue3(""),
