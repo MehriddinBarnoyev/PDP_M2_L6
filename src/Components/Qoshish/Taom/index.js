@@ -18,10 +18,10 @@ const Taom = () => {
     const addTaom = () => {
         const arrValue = [value1, value2, value3, value4];
         addNewTask(arrValue, n);
-        setValue1(""),
-        setValue2(""),
-        setValue3(""),
-        setValue4("")
+        setValue1("");
+        setValue2("");
+        setValue3("");
+        setValue4("");
     }
   return (
     <TaomStyledWrapper className='py-4'>

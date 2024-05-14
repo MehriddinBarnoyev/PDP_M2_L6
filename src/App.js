@@ -11,6 +11,8 @@ import Kategoriya from './Components/Qoshish/Katigoriya';
 import Taom from './Components/Qoshish/Taom';
 import YitAriza from './Components/YetArizalar';
 import store from './Redux/store';
+import Welcome from './Components/Welcome';
+import Login from './Components/Loginpage';
 
 const LoginContext = createContext({isLogin: false, setLogin: () => {}});
 
@@ -20,19 +22,12 @@ function App() {
   
   return (
     <Provider store={store}>
-      <LoginContext.Provider value={{isLogin, setLogin}}>  
         <Router>
+      <LoginContext.Provider value={{isLogin, setLogin}}>  
           <Routes>
-            <Route path='/' element={
-              <div className='border d-block p-4 mx-auto mt-5 rounded shadow' style={{width: 400, height: 200}}>
-                <h1 className='text-center text-info mb-4'>Express 24</h1>
-                <span className='text-center d-block'>
-                <Link to={"/dashboard"} onClick={() => setLogin(true)} className="btn btn-success me-2">Kirish</Link>
-                <Link className='btn btn-warning'>Ro'yxatdan o'tish</Link>
-                </span>
-              </div>
-            }/>
-            
+           <Route path='/' element={<Welcome/>}></Route>
+           <Route path='/login' element={<Login/>}></Route>
+            { isLogin && (
               <Route path='/dashboard'element={<Dashboard />}>
                 <Route path='ariza' element={<Arizalar />} />
                 <Route path='yitariza' element={<YitAriza />} />
@@ -43,11 +38,11 @@ function App() {
                 </Route>
                 <Route path='statistika' element={<></>} />
               </Route>
-            
+            )}
             <Route path='*' element={<Page404 />} />
           </Routes>
-        </Router>
       </LoginContext.Provider>
+        </Router>
     </Provider>
   );
 }
