@@ -31,7 +31,7 @@ const Foydalanuchilar = () => {
                     <tr className='text-center'>
                         <td className='fw-bold'>Jami</td>
                         <td colSpan={2}></td>
-                        <td className='fw-bold'>{tasks4.length + " "} so'm</td>
+                        <td className='fw-bold'>{tasks4.length + " "} ta</td>
                         <td colSpan={2}></td>
                     </tr>
                 </tbody>

@@ -29,26 +29,7 @@ const TrWrapper = ({item, index, ...props}) => {
                 {rol}
             </Button>
 
-            <Modal show={showRol} onHide={handleCloseRol} centered animation={false}>
-                <Modal.Header className='border-0 mx-auto'>
-                    <Modal.Title>Foydalanuvchi uchun rol tanlang</Modal.Title>
-                </Modal.Header> 
-                <Modal.Body className='mx-auto'>
-                    <Form.Select style={{width: 450}}>
-                        <option>Admin</option>
-                        <option>Yetkazuvchi</option>
-                        <option>Foydalanuvchi</option>
-                    </Form.Select>
-                </Modal.Body>
-                <Modal.Footer className='border-0 mx-auto'>
-                    <Button variant="danger" style={{width: 150}} onClick={handleCloseRol}>
-                        Bekor qilish
-                    </Button>
-                    <Button variant="warning" className='fw-bold' style={{width: 150}} onClick={handleCloseRol}>
-                        Saqlash
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+           
         </td>
         <td className="text-center">
             <Button className='bg-white text-primary border-0' onClick={handleShowEdit}>

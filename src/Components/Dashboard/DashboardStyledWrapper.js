@@ -5,7 +5,7 @@ const DashboardStyledWrapper = styled.section`
         width: 320px;
         height: 100vh;
         z-index: 1;
-        background-color: #FFFCED;
+        background-color: #152238;
         .list-group{
             margin-top: 20px;
             .list-group-item{

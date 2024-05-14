@@ -32,7 +32,7 @@ function App() {
                 </span>
               </div>
             }/>
-            { isLogin && (
+            
               <Route path='/dashboard'element={<Dashboard />}>
                 <Route path='ariza' element={<Arizalar />} />
                 <Route path='yitariza' element={<YitAriza />} />
@@ -43,7 +43,7 @@ function App() {
                 </Route>
                 <Route path='statistika' element={<></>} />
               </Route>
-            )}
+            
             <Route path='*' element={<Page404 />} />
           </Routes>
         </Router>

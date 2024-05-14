@@ -18,13 +18,13 @@ const Kategoriya = () => {
   return (
     <KategoriyaStyledWrapper className='py-4 text-center'>
         <p>
-        <input type="text" 
+        <input type="text"  
           placeholder='Kategoriya nomi' 
           value={value}
           onChange={(e) => {
             setValue(e.target.value);
           }}  
-          className='w-100 mt-2 px-3 py-1 from-control mb-4' />
+          className='w-100 mt-2 px-3 py-1 form-control mb-4' />
         </p>
         <button type='button' onClick={addKategoriya} className='btn btn-warning mb-4 px-4 fw-bold shadow'>Qo'shish</button>
         <KatRoyxat />

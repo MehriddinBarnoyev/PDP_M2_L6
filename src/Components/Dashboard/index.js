@@ -76,12 +76,12 @@ const Dashboard = () => {
         </aside>
         <div className="rightside">
             <header className='shadow border px-4 py-3 d-flex align-items-center justify-content-between'>
-                <button type='button' onClick={() => setDisplay(display === true ? false : true)} className='border-0 bg-white'>
-                    <FaBars />
+                <button type='button ' onClick={() => setDisplay(display === true ? false : true)} className='border-0 bg-white '>
+                  <button className='btn btn-primary '> Home</button>
                 </button>
                 <span className='d-flex align-items-center'>
                     <FaUserTie className='text-secondary me-1'/>
-                    <p className='m-0 me-4 fw-bold text-secondary'>Davron</p>
+                    <p className='m-0 me-4 fw-bold text-secondary'>Mehriddin</p>
                     <Link to={"/"} onClick={() => setLogin(false)} className="btn btn-primary">Log out</Link>
                 </span>
             </header>

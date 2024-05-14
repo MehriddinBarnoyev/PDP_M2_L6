@@ -4,7 +4,7 @@ const initialState = {
     tasks1: [
         {   
             id: 1,
-            katigoriya: "Quyuq taomlar"
+            katigoriya: "Milly taomlar"
         }, 
         {
             id: 2,
@@ -12,7 +12,15 @@ const initialState = {
         }, 
         {
             id: 3,
+            katigoriya: "Quyuq taomlar"
+        },
+        {
+            id: 4,
             katigoriya: "Ichimliklar"
+        },
+        {
+            id: 5,
+            katigoriya: "Dessert"
         },
     ],
 }
